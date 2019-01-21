@@ -8,17 +8,17 @@ public class ConwaySim {
 
 	public static void main(String[] args) throws InterruptedException {
 
-		Scanner rowRead = new Scanner(System.in);  	
-		
 		// Read user input to get the number of rows.
+		
+		Scanner rowRead = new Scanner(System.in);  	
 		
 		System.out.println("Enter the number of rows: ");
 		
 		int A = rowRead.nextInt();
 		
-		Scanner colRead = new Scanner(System.in);   
-		
 		// Read user input to get the number of columns.
+		
+		Scanner colRead = new Scanner(System.in);   
 		
 		System.out.println("Enter the number of columns: ");
 		
@@ -26,22 +26,23 @@ public class ConwaySim {
 		
 		int[][] frame = new int[A][B];
 		
-		Scanner seedRead = new Scanner(System.in);  
-		
 		// Read user input to get a seed for the current generation.
+		
+		Scanner seedRead = new Scanner(System.in);  
 		
 		System.out.println("Enter a seed number for the initial state: ");
 		
 		int seed = seedRead.nextInt();
 		
-		Scanner continuousRead = new Scanner(System.in);  	
+		// Read user input to set continuous generation or not.
 		
-		// Read user input to get the number of rows.
+		Scanner continuousRead = new Scanner(System.in);  	
 		
 		System.out.println("Continuous generation? (Y/N) ");
 		
 		char C = continuousRead.next().charAt(0);
 		
+		//Stop memory leakage from scanners.
 		
 		rowRead.close();
 		colRead.close();
@@ -52,11 +53,12 @@ public class ConwaySim {
 		
 		// Depending on the seed X, random elements will be changed X times to Alive state.
 		
-		for(int i = 0; i < seed; i++) {
-			
+		for(int i = 0; i < seed; i++) 
+		{
 			frame[r.nextInt(A)][r.nextInt(B)] = 1;
-			
 		}
+		
+		// Initial state is displayed.
 		
 		System.out.println("Current Generation:");
 		
@@ -65,12 +67,18 @@ public class ConwaySim {
 			for(int j = 0; j < B; j++)
 			{
 				if (frame[i][j] == 0)
-						System.out.print("_");
+				{
+					System.out.print("_");
+				}
 				else
-						System.out.print("O");
+				{
+					System.out.print("O");
+				}
 				
 				if (j == B-1)
+				{
 					System.out.println();
+				}
 			}
 		}
 		
@@ -81,13 +89,14 @@ public class ConwaySim {
 		
 		while(C == 'Y')
 		{
-		TimeUnit.SECONDS.sleep(2);
-		frame = nextGen(frame, A, B);
+			TimeUnit.SECONDS.sleep(2);
+			frame = nextGen(frame, A, B);
 		}
 		
 	}
 	
-	// State generator function that considers the grid edges
+	// State generator function that considers the grid edges.
+	
 	static int[][] nextGen(int array[][], int X, int Y) {
 		
 		int state[][] = new int[X][Y];
@@ -99,7 +108,7 @@ public class ConwaySim {
 				int neighbors = 0;
 				
 				// Calculating the number of neighbors for each cell, depending on
-				// grid position
+				// grid position.
 			
 				// Upper left edge
 				if (k == 0 && l == 0) 
@@ -210,30 +219,32 @@ public class ConwaySim {
 				}
 			
 				neighbors -= array[k][l];
+
+				// Live cell with fewer than two neighbors dies
+				if ((array[k][l] == 1) && (neighbors < 2)) 
+				{
+				    state[k][l] = 0;
+				}
+
+				// Live cell with more than 3 neighbors dies
+				else if ((array[k][l] == 1) && (neighbors > 3)) 
+				{
+				    state[k][l] = 0; 
+				}
+				// Dead cell with exactly 3 neighbors is brought to life
+				else if ((array[k][l] == 0) && (neighbors == 3)) 
+				{
+				    state[k][l] = 1; 
+				}
+				// All others are unchanged
+				else
+				{
+				    state[k][l] = array[k][l]; 
+				}
 				
-                // Live cell with fewer than two neighbors dies
-                if ((array[k][l] == 1) && (neighbors < 2)) 
-                {
-                    state[k][l] = 0;
-                }
-  
-                // Live cell with more than 3 neighbors dies
-                else if ((array[k][l] == 1) && (neighbors > 3)) 
-                {
-                    state[k][l] = 0; 
-                }
-                // Dead cell with exactly 3 neighbors is brought to life
-                else if ((array[k][l] == 0) && (neighbors == 3)) 
-                {
-                    state[k][l] = 1; 
-                }
-                // All others are unchanged
-                else
-                {
-                    state[k][l] = array[k][l]; 
-                }
-			}
-		}
+	        	}
+			
+	        }
 		
 		System.out.println("Next Generation:");
 		
@@ -242,16 +253,19 @@ public class ConwaySim {
 			for(int j = 0; j < Y; j++)
 			{
 				if (state[i][j] == 0)
+				{
 						System.out.print("_");
+				}
 				else
+				{
 						System.out.print("O");
-				
+				}
 				if (j == Y-1)
+				{
 					System.out.println();
+				}
 			}
 		}
-		return state;
-		
+		return state;	
 	}
-
 }
