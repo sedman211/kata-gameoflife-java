@@ -266,8 +266,6 @@ public class ConwaySim {
 				}
 			}
 		}
-		return state;
-		
+		return state;	
 	}
-
 }
