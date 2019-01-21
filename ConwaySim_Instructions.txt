@@ -2,7 +2,7 @@ Instructions and general info for running this java simulation.
 
 The rules for this game of life are as follows:
 
-1. Any	live	cell	with	fewer	than two	live	neighbors	dies,	as	if	caused	by	
+1. Any	live	cell	with	fewer than two	live	neighbors	dies,	as	if	caused	by	
    underpopulation.
 2. Any	live	cell	with	more	than	three	live	neighbors	dies,	as	if	by	overcrowding.
 3. Any	live	cell	with	two	or	three	live	neighbors	lives	on	to	the	next	generation.
