@@ -89,8 +89,8 @@ public class ConwaySim {
 		
 		while(C == 'Y')
 		{
-		TimeUnit.SECONDS.sleep(2);
-		frame = nextGen(frame, A, B);
+			TimeUnit.SECONDS.sleep(2);
+			frame = nextGen(frame, A, B);
 		}
 		
 	}
