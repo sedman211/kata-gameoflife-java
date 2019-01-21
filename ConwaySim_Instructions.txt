@@ -19,8 +19,9 @@ The user can enter any number of rows and columns for the game. The seed value
 specifies how many times a random cell in the grid will be changed from '0' (Dead)
 to '1' (Alive). I set it up this way because I didn't find a quick way of setting
 specific cells to alive in the game. Lastly, continuous generation can be set to either
-'Y' or 'N', which will make the game continue once, or generate every 2 seconds until the
-program is killed by the user. All of this is a work-in-progress.
+'Y' or 'N' (In reality, it can be anything other than Y to stop it). This will make 
+the game continue once, or generate every 2 seconds until the program is killed by the user. 
+All of this is a work-in-progress.
 
 
 -Sed
