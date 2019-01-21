@@ -1,5 +1,16 @@
 Instructions and general info for running this java simulation.
 
+The rules for this game of life are as follows:
+
+1. Any	live	cell	with	fewer	than two	live	neighbors	dies,	as	if	caused	by	
+   underpopulation.
+2. Any	live	cell	with	more	than	three	live	neighbors	dies,	as	if	by	overcrowding.
+3. Any	live	cell	with	two	or	three	live	neighbors	lives	on	to	the	next	generation.
+4. Any	dead	cell	with	exactly	three	live neighbors	becomes	a	live	cell.
+5. A	cell’s	neighbors	are	those	cells	which	are	horizontally,	vertically	or	
+   diagonally	adjacent.	Most	cells	will	have	eight	neighbors.	Cells	placed	on	the	
+   edge	of	the	grid	will	have	fewer.
+
 ConwaySim.java was created using Eclipse IDE, and contains its own main method.
 This means that it 'should' work with any decent java compiler that can execute
 the program. You should have the java SDK installed, as well as the java PATH set 
