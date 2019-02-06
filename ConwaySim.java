@@ -4,20 +4,18 @@ import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 public class ConwaySim {
-// Sedrick Bolden - Simulation of John Conway's game of life in Java, bound to grid edges.
+// Sedrick Bolden - Simulation of John Conway's game of life in Java, bound to grid edges
 
 	public static void main(String[] args) throws InterruptedException {
 
-		// Read user input to get the number of rows.
-		
+		// Read user input to get the number of rows
 		Scanner rowRead = new Scanner(System.in);  	
 		
 		System.out.println("Enter the number of rows: ");
 		
 		int A = rowRead.nextInt();
 		
-		// Read user input to get the number of columns.
-		
+		// Read user input to get the number of columns
 		Scanner colRead = new Scanner(System.in);   
 		
 		System.out.println("Enter the number of columns: ");
@@ -26,24 +24,21 @@ public class ConwaySim {
 		
 		int[][] frame = new int[A][B];
 		
-		// Read user input to get a seed for the current generation.
-		
+		// Read user input to get a seed for the current generation
 		Scanner seedRead = new Scanner(System.in);  
 		
 		System.out.println("Enter a seed number for the initial state: ");
 		
 		int seed = seedRead.nextInt();
 		
-		// Read user input to set continuous generation or not.
-		
+		// Read user input to set continuous generation or not
 		Scanner continuousRead = new Scanner(System.in);  	
 		
 		System.out.println("Continuous generation? (Y/N) ");
 		
 		char C = continuousRead.next().charAt(0);
 		
-		//Stop memory leakage from scanners.
-		
+		//Stop memory leaks from scanners
 		rowRead.close();
 		colRead.close();
 		seedRead.close();
@@ -51,15 +46,13 @@ public class ConwaySim {
 		
 		Random r = new Random();
 		
-		// Depending on the seed X, random elements will be changed X times to Alive state.
-		
+		// Depending on the seed X, random elements will be changed X times to Alive state
 		for(int i = 0; i < seed; i++) 
 		{
 			frame[r.nextInt(A)][r.nextInt(B)] = 1;
 		}
 		
-		// Initial state is displayed.
-		
+		// Initial state is displayed
 		System.out.println("Current Generation:");
 		
 		for(int i = 0; i < A; i++)
@@ -82,8 +75,7 @@ public class ConwaySim {
 			}
 		}
 		
-		// Depending on whether Continuous generation is set to 'Y', wait 2 seconds and generate.
-		
+		// Depending on whether Continuous generation is set to 'Y', wait 2 seconds and generate
 		TimeUnit.SECONDS.sleep(2);
 		frame = nextGen(frame, A, B);
 		
@@ -95,8 +87,7 @@ public class ConwaySim {
 		
 	}
 	
-	// State generator function that considers the grid edges.
-	
+	// State generator function that considers the grid edges
 	static int[][] nextGen(int array[][], int X, int Y) {
 		
 		int state[][] = new int[X][Y];
@@ -108,7 +99,7 @@ public class ConwaySim {
 				int neighbors = 0;
 				
 				// Calculating the number of neighbors for each cell, depending on
-				// grid position.
+				// grid position
 			
 				// Upper left edge
 				if (k == 0 && l == 0) 
@@ -217,7 +208,8 @@ public class ConwaySim {
 						}
 					}
 				}
-			
+				
+				// Remove the cell itself from neighbor count
 				neighbors -= array[k][l];
 
 				// Live cell with fewer than two neighbors dies
@@ -246,6 +238,7 @@ public class ConwaySim {
 			
 	        }
 		
+		// Display and return the next state of the grid
 		System.out.println("Next Generation:");
 		
 		for(int i = 0; i < X; i++)
