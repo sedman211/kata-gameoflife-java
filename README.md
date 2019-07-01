@@ -22,11 +22,14 @@ The rules for this game of life are as follows:
 Each live cell in the game is represented by a 'O', while each dead cell is
 represented by a '_' to make it visually simple.
 
-When the program is run, you have to enter 4 values:
+When the program is run, you enter 4 values:
 
-Number of rows
-Number of columns
-Seed number
+Number of rows,
+
+Number of columns,
+
+Seed number,
+
 Continuous generation (Y/N)
 
 The user can enter any number of rows and columns for the game. The seed value
