@@ -1,15 +1,15 @@
 # Game of Life Program
 A small java representation of John Conway's game of life, built for a job application process. Restricted to the bounds of the grid. Work in progress.
 
-# What it Does
+# Instructions
 Instructions and general info for running this java simulation.
-
-The rules for this game of life are as follows:
 
 ConwaySim.java was created using Eclipse IDE, and contains its own main method.
 This means that it 'should' work with any decent java compiler that can execute
 the program. You should have the java SDK installed, as well as the java PATH set 
 up in the computer's system properties just in case.
+
+The rules for this game of life are as follows:
 
 1. Any live cell with fewer than two live neighbors dies, as if caused by underpopulation. 
 2. Any live cell with more than three live neighbors dies, as if by overcrowding. 
