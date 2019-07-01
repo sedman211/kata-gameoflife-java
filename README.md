@@ -1,5 +1,5 @@
-# SBolden-GoL-Java
-A small java representation of John Conway's game of life. Restricted to the bounds of the grid. Work in progress.
+# Game of Life Program
+A small java representation of John Conway's game of life, built for a job application process. Restricted to the bounds of the grid. Work in progress.
 
 # What it Does
 Instructions and general info for running this java simulation.
