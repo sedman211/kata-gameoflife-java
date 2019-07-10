@@ -7,7 +7,7 @@ Instructions and general info for running this java simulation.
 ConwaySim.java was created using Eclipse IDE, and contains its own main method.
 This means that it 'should' work with any decent java compiler that can execute
 the program. You should have the java SDK installed, as well as the java PATH set 
-up in the computer's system properties just in case.
+up in the computer's environment variables just in case.
 
 The rules for this game of life are as follows:
 
